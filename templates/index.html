@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <form method="post" enctype="multipart/form-data">
+        <input type="file" name="images_zip_file" accept=".zip" value="ZIP with images" required>
+        <input type="file" name="config_file" value="Config file" required>
+
+        <label for="select-method-id">Processing method</label>
+        <select id="select-method-id" name="process_method" required>
+            {% for key, name in processing_methods.items() %}
+            <option value="{{ key }}" selected="selected">{{ name }}</option>
+            {% endfor %}
+        </select>
+
+        <button type="submit">Send</button>
+    </form>
+{% endblock content %}
